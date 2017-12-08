@@ -20,7 +20,7 @@ public class EmployeeDAO extends JdbcDaoSupport {
 	}
 	
 	public Employee findEmployee(String username) {
-		String sql = EmployeeMapper.BASE_SQL+"where username=?";
+		String sql = EmployeeMapper.BASE_SQL+" where username=?";
 		
 		Object[] params = new Object[] { username };
 		EmployeeMapper employeeMapper = new EmployeeMapper();

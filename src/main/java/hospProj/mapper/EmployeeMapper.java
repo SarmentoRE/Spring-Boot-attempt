@@ -20,7 +20,7 @@ public class EmployeeMapper implements RowMapper<Employee>{
 		String address = rs.getString("address");
 		String username = rs.getString("username");
 		String password = rs.getString("password");
-		String role = rs.getString("role");
+		String role = rs.getString("emp_role");
 		
 		return new Employee(employeeId,employeeName,dob,salary,address,username,password,role);
 	}	
