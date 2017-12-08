@@ -19,7 +19,7 @@
 
     <h2>New Patient</h2>
     <div>
-        <form class="form-horizontal" th:object="${patient}" th:action="@{/addPatient}" method="post">
+        <form class="form-horizontal" th:object="${patient}" th:action="@{/newPatient}" method="post">
         
         	<input type="hidden" th:field="*{patientId}"/>
             <div class="form-group" th:class="${#fields.hasErrors('patientName')} ? 'form-group has-error' : 'form-group'">

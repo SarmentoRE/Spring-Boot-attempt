@@ -3,6 +3,7 @@ package hospProj.controller;
 import java.security.Principal;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,9 +15,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import hospProj.model.Employee;
+import hospProj.service.PatientService;
 
 @Controller
 public class MainController {
+	private PatientService patientService;
+	
+	@Autowired
+	public void setPatientService(PatientService patientService) {
+		this.patientService = patientService;
+	}
 	
 	@RequestMapping({"/","/home"})
 	public String homePage(Model model) {
@@ -87,5 +95,11 @@ public class MainController {
 		if(roles.contains("ROLE_RECEPTIONIST"))return "empInfo";
 		if(roles.contains("ROLE_JANITOR"))return "empInfo";
 		return "index";
+	}
+	
+	 @RequestMapping({"/patient/list", "/patients"})
+	    public String listPatients(Model model){
+	        model.addAttribute("patients", patientService.listAll());
+	        return "patient/list";
 	}
 }
