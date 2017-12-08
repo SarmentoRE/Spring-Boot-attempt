@@ -27,7 +27,7 @@ public class RegistrationController {
     
     @GetMapping
     public String showRegistrationForm(Model model) {
-        return "registration";
+        return "newEmployee";
     }
 
     @PostMapping
@@ -36,15 +36,15 @@ public class RegistrationController {
 
         Employee existing = empServ.searchByUsername(emp.getUsername());
         if (existing != null){
-            result.rejectValue("email", null, "There is already an account registered with that email");
+            result.rejectValue("email", null, "There is already an account registered with that username");
         }
 
         if (result.hasErrors()){
-            return "registration";
+            return "newEmployee";
         }
 
         empServ.saveOrUpdate(emp);
-        return "redirect:/registration?success";
+        return "redirect:/home";
     }
 
 }

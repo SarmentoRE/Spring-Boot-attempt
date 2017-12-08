@@ -9,7 +9,6 @@ import javax.validation.constraints.*;
 @Entity
 public class Employee {
 	@Id
-	@GeneratedValue
 	private int employeeId;
 	private String employeeName;
 	private Timestamp dob;
@@ -20,7 +19,7 @@ public class Employee {
 	@NotNull
 	private String password;
 	@NotNull
-	private String role;
+	private String empRole;
 	
 	public Employee() {}
 	
@@ -33,7 +32,7 @@ public class Employee {
 		this.address = address;
 		this.username = username;
 		this.password = password;
-		this.role = role;
+		this.empRole = role;
 	}
 	
 	public int getEmployeeId() {
@@ -79,9 +78,9 @@ public class Employee {
 		this.password = password;
 	}
 	public String getRole() {
-		return role;
+		return empRole;
 	}
 	public void setRole(String role) {
-		this.role = role;
+		this.empRole = role;
 	}
 }
