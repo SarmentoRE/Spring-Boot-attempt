@@ -1,4 +1,4 @@
-package model;
+package hospProj.model;
 
 import java.sql.Timestamp;
 

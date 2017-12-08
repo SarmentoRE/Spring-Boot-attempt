@@ -1,10 +1,7 @@
-package service;
+package hospProj.service;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import dao.EmployeeDAO;
-import model.Employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -14,6 +11,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import hospProj.dao.EmployeeDAO;
+import hospProj.model.Employee;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService{

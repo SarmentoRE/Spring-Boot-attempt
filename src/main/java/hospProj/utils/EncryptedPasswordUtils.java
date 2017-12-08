@@ -1,4 +1,4 @@
-package utils;
+package hospProj.utils;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
