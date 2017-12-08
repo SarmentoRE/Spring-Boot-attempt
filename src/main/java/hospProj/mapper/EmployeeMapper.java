@@ -1,12 +1,12 @@
-package mapper;
+package hospProj.mapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
-import model.Employee;
-
 import org.springframework.jdbc.core.RowMapper;
+
+import hospProj.model.Employee;
 
 public class EmployeeMapper implements RowMapper<Employee>{
 	public static final String BASE_SQL = "SELECT * FROM employee";

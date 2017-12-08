@@ -1,15 +1,15 @@
-package dao;
+package hospProj.dao;
 
 import javax.sql.DataSource;
-
-import mapper.EmployeeMapper;
-import model.Employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import hospProj.mapper.EmployeeMapper;
+import hospProj.model.Employee;
 
 @Repository
 @Transactional

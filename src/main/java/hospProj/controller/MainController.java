@@ -1,4 +1,4 @@
-package controller;
+package hospProj.controller;
 
 import java.security.Principal;
 
@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class MainController {
 	
+	@RequestMapping({"/","/home"})
+	public String homePage(Model model) {
+		return "home";
+	}
 	
 	@RequestMapping(value = "/logoutSuccessful", method = RequestMethod.GET)
 	public String logoutSuccessfulPage(Model model) {
@@ -21,7 +25,7 @@ public class MainController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(Model model) {
-        return "loginPage";
+        return "index";
     }
 	
 	@RequestMapping(value = "/userInfo", method = RequestMethod.GET)
