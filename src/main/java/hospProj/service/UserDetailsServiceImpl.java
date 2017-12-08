@@ -40,6 +40,4 @@ public class UserDetailsServiceImpl implements UserDetailsService{
          UserDetails userDetails = (UserDetails) new User(employee.getUsername(), employee.getPassword(), grantList);
          return userDetails;
 	}
-	
-	
 }

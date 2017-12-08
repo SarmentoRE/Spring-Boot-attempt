@@ -2,18 +2,24 @@ package hospProj.model;
 
 import java.sql.Timestamp;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.*;
 
 @Entity
 public class Employee {
 	@Id
+	@GeneratedValue
 	private int employeeId;
 	private String employeeName;
 	private Timestamp dob;
 	private double salary;
 	private String address;
+	@NotNull
 	private String username;
+	@NotNull
 	private String password;
+	@NotNull
 	private String role;
 	
 	public Employee() {}
