@@ -19,6 +19,8 @@
 
     <h2>New Patient</h2>
     <div>
+          <th:block th:include="/_menu"></th:block>
+    
         <form class="form-horizontal" th:object="${patient}" th:action="@{/addPatient}" method="post">
         
         	<input type="hidden" th:field="*{patientId}"/>
