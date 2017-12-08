@@ -2,6 +2,9 @@ package hospProj.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Nurse extends Employee{
 	String ward;
 
