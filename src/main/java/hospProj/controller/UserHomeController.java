@@ -22,16 +22,16 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 @Controller
 @RequestMapping("/home")
-public class UserInfoController {
+public class UserHomeController {
 	@GetMapping
 	public String getProperPage(@ModelAttribute("employee") Employee emp, Model model)
 	{
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		Set<String> roles = AuthorityUtils.authorityListToSet(auth.getAuthorities());
-		if(roles.contains("ROLE_DOCTOR"))return "doctor";
-		if(roles.contains("ROLE_NURSE"))return "nurse";
-		if(roles.contains("ROLE_RECEPTIONIST"))return "receptionist";
-		if(roles.contains("ROLE_JANITOR"))return "janitor";
+		if(roles.contains("ROLE_DOCTOR"))return "doctorHome";
+		if(roles.contains("ROLE_NURSE"))return "nurseHome";
+		if(roles.contains("ROLE_RECEPTIONIST"))return "receptionistHome";
+		if(roles.contains("ROLE_JANITOR"))return "janitorHome";
 		return "index";
 	}
 }

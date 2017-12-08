@@ -17,17 +17,6 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
 			throws IOException, ServletException {
 		Set<String> roles = AuthorityUtils.authorityListToSet(auth.getAuthorities());
 		response.setStatus(HttpServletResponse.SC_OK);
-		if(roles.contains("ROLE_DOCTOR")) {
-			response.sendRedirect("doctor");
-		}
-		else if(roles.contains("ROLE_JANITOR")) {
-			response.sendRedirect("janitor");
-		}
-		else if(roles.contains("ROLE_RECEPTIONIST")) {
-			response.sendRedirect("receptionist");
-		}
-		else if(roles.contains("ROLE_NURSE")) {
-			response.sendRedirect("nurse");
-		}
+		response.sendRedirect("/home");
 	}
 }

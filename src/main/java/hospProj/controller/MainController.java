@@ -1,11 +1,15 @@
 package hospProj.controller;
 
 import java.security.Principal;
+import java.util.Set;
 
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -72,4 +76,16 @@ public class MainController {
  
         return "403Page";
     }
+	
+	@RequestMapping("/info")
+	public String getInfoPage( Model model)
+	{
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		Set<String> roles = AuthorityUtils.authorityListToSet(auth.getAuthorities());
+		if(roles.contains("ROLE_DOCTOR"))return "doctorInfo";
+		if(roles.contains("ROLE_NURSE"))return "nurseInfo";
+		if(roles.contains("ROLE_RECEPTIONIST"))return "empInfo";
+		if(roles.contains("ROLE_JANITOR"))return "empInfo";
+		return "index";
+	}
 }
