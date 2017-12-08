@@ -22,7 +22,8 @@ public class Employee {
 	
 	public Employee() {}
 	
-	public Employee(int employeeId, String employeeName, Timestamp dob, double salary, String address, String username,String password, String role) {
+	public Employee(int employeeId, String employeeName, Timestamp dob, double salary, String address, String username,String password, String role) 
+	{
 		super();
 		this.employeeId = employeeId;
 		this.employeeName = employeeName;
