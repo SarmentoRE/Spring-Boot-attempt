@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import hospProj.model.Employee;
+
 @Controller
 public class MainController {
 	
@@ -42,6 +44,7 @@ public class MainController {
 	
 	@RequestMapping(value = "/newEmployee", method = RequestMethod.GET)
 	public String newEmployee(Model model) {
+		model.addAttribute("employee", new Employee());
 		return "newEmployee";
 	}
 	

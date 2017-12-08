@@ -21,4 +21,10 @@ public class EmployeeService {
 		employeeRepository.save(employee);
 		return employee;
 	}
+	
+	public Employee searchByUsername(String username)
+	{
+		return employeeRepository.findByUsername(username);
+	}
+	
 }
