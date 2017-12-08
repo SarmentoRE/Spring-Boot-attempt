@@ -19,6 +19,12 @@ public class RegistrationController {
     @Autowired
     private EmployeeService empServ;
 
+    @ModelAttribute("employee")
+    public Employee getEmployee()
+    {
+    	return new Employee();
+    }
+    
     @GetMapping
     public String showRegistrationForm(Model model) {
         return "registration";
