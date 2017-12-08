@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import hospProj.service.UserDetailsServiceImpl;
 
@@ -39,30 +40,29 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         http.csrf().disable();
  
         // The pages does not require login
-        http.authorizeRequests().antMatchers("/", "/login", "/logout", "/home").permitAll();
- 
-        // /userInfo page requires login as ROLE_USER or ROLE_ADMIN.
-        // If no login, it will redirect to /login page.
-        http.authorizeRequests().antMatchers("/userInfo").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
- 
+        http.authorizeRequests().antMatchers("/", "/login", "/logout", "/home").permitAll(); 
         // For ADMIN only.
         http.authorizeRequests().antMatchers("/admin").access("hasRole('ROLE_ADMIN')");
         
-        http.authorizeRequests().antMatchers("/janitorPage").access("hasRole('ROLE_JANITOR')");
+        http.authorizeRequests().antMatchers("/janitor").access("hasRole('ROLE_JANITOR')");
+        http.authorizeRequests().antMatchers("/doctor").access("hasRole('ROLE_DOCTOR')");
+        http.authorizeRequests().antMatchers("/nurse").access("hasRole('ROLE_NURSE')");
+        http.authorizeRequests().antMatchers("/receptionist").access("hasRole('ROLE_RECEPTIONIST')");
         
         
  
         // When the user has logged in as XX.
         // But access a page that requires role YY,
         // AccessDeniedException will be thrown.
-        http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");
- 
+        http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403Page");
+        
+        AuthenticationSuccessHandler successHandler = new CustomAuthenticationSuccessHandler();
         // Config for Login Form
         http.authorizeRequests().and().formLogin()//
                 // Submit URL of login page.
                 .loginProcessingUrl("/j_spring_security_check") // Submit URL
                 .loginPage("/login")//
-                .defaultSuccessUrl("/userAccountInfo")//
+                .successHandler(successHandler)
                 .failureUrl("/login?error=true")//
                 .usernameParameter("username")//
                 .passwordParameter("password")

@@ -37,9 +37,24 @@ public class MainController {
 		return "userInfoPage";
 	}
 	
-	@RequestMapping(value = "/janitorPage", method = RequestMethod.GET)
+	@RequestMapping(value = "/janitor", method = RequestMethod.GET)
 	public String janitorPage(Model model) {
-		return "janitorPage";
+		return "janitor";
+	}
+	
+	@RequestMapping(value = "/doctor", method = RequestMethod.GET)
+	public String doctorPage(Model model) {
+		return "doctor";
+	}
+	
+	@RequestMapping(value = "/nurse", method = RequestMethod.GET)
+	public String nursePage(Model model) {
+		return "nurse";
+	}
+	
+	@RequestMapping(value = "/receptionist", method = RequestMethod.GET)
+	public String receptionistPage(Model model) {
+		return "receptionist";
 	}
 	
 	@RequestMapping(value = "/newEmployee", method = RequestMethod.GET)

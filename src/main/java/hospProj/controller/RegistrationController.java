@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/registration")
@@ -28,7 +27,7 @@ public class RegistrationController {
     }
     
     @GetMapping
-    public String showRegistrationForm(Model model) {
+    public String showRegistrationForm(Model movdel) {
         return "newEmployee";
     }
 
@@ -38,7 +37,7 @@ public class RegistrationController {
 
         Employee existing = empServ.searchByUsername(emp.getUsername());
         if (existing != null){
-            result.rejectValue("email", null, "There is already an account registered with that username");
+            result.rejectValue("username", null, "There is already an account registered with that username");
         }
 
         if (result.hasErrors()){
