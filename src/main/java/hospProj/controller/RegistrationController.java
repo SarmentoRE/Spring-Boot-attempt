@@ -45,7 +45,7 @@ public class RegistrationController {
         }
         emp.setPassword(EncryptedPasswordUtils.encryptPassword(emp.getPassword()));
         empServ.saveOrUpdate(emp);
-        return "redirect:/home";
+        return "redirect:/login";
     }
 
 }

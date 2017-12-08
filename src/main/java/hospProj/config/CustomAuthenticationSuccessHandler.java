@@ -38,10 +38,10 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
 			response.sendRedirect("janitor");
 		}
 		else if(roles.contains("ROLE_RECEPTIONIST")) {
-			response.sendRedirect("RECEPTIONIST");
+			response.sendRedirect("receptionist");
 		}
 		else if(roles.contains("ROLE_NURSE")) {
-			response.sendRedirect("NURSE");
+			response.sendRedirect("nurse");
 		}
 	}
 }
