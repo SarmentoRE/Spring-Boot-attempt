@@ -40,6 +40,11 @@ public class MainController {
 		return "janitorPage";
 	}
 	
+	@RequestMapping(value = "/newEmployee", method = RequestMethod.GET)
+	public String newEmployee(Model model) {
+		return "newEmployee";
+	}
+	
 	@RequestMapping(value = "/403", method = RequestMethod.GET)
     public String accessDenied(Model model, Principal principal) {
         if (principal != null) {
