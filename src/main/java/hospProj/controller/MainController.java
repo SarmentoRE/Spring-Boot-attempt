@@ -35,6 +35,11 @@ public class MainController {
 		return "userInfoPage";
 	}
 	
+	@RequestMapping(value = "/janitorPage", method = RequestMethod.GET)
+	public String janitorPage(Model model) {
+		return "janitorPage";
+	}
+	
 	@RequestMapping(value = "/403", method = RequestMethod.GET)
     public String accessDenied(Model model, Principal principal) {
         if (principal != null) {
