@@ -1,4 +1,7 @@
 package hospProj.service;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,5 +26,11 @@ public class PatientService {
 	public Patient searchById(int Id)
 	{
 		return patientRepository.findByPatientId(Id);
+	}
+	
+	public List<Patient> listAll(){
+		List<Patient> patients = new ArrayList<>();
+		patientRepository.findAll().forEach(patients::add);
+		return patients;
 	}
 }

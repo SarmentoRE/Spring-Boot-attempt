@@ -19,9 +19,13 @@
 
     <h2>New Patient</h2>
     <div>
+<<<<<<< HEAD
+        <form class="form-horizontal" th:object="${patient}" th:action="@{/newPatient}" method="post">
+=======
           <th:block th:include="/_menu"></th:block>
     
         <form class="form-horizontal" th:object="${patient}" th:action="@{/addPatient}" method="post">
+>>>>>>> 1b55c476f98d6a5f361771b1c595b4cedaf3a302
         
         	<input type="hidden" th:field="*{patientId}"/>
             <div class="form-group" th:class="${#fields.hasErrors('patientName')} ? 'form-group has-error' : 'form-group'">
