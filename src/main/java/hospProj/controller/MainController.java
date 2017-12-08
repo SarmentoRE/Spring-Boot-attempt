@@ -17,14 +17,27 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import hospProj.model.Employee;
 import hospProj.service.PatientService;
+import hospProj.service.RoomService;
 
 @Controller
 public class MainController {
 	private PatientService patientService;
+	private RoomService roomService;
 	
 	@Autowired
 	public void setPatientService(PatientService patientService) {
 		this.patientService = patientService;
+	}
+	
+	@Autowired
+	public void setRoomService(RoomService roomService) {
+		this.roomService = roomService;
+	}
+	
+	@RequestMapping({"/room"})
+	public String roomPage(Model model) {
+		model.addAttribute("rooms",roomService.listAll());
+		return "room";
 	}
 	
 	@RequestMapping({"/","/home"})
