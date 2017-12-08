@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -102,4 +103,10 @@ public class MainController {
 	        model.addAttribute("patients", patientService.listAll());
 	        return "patient/list";
 	}
+	 
+	 @RequestMapping({"/patient/show/{id}"})
+	 	public String getPatient(@PathVariable String id, Model model) {
+		model.addAttribute("patient",patientService.searchById(Integer.valueOf(id)));
+		return "patient/show";
+	 }
 }

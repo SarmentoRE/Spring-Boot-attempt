@@ -27,6 +27,7 @@
                 <th>Height</th>
                 <th>Weight</th>
                 <th>Address</th>
+                <th>View</th>
             </tr>
             <tr th:each="patient : ${patients}">
                 <td th:text="${patient.patientId}"></td>
@@ -36,12 +37,13 @@
                 <td th:text="${patient.height}"></td>
                 <td th:text="${patient.weight}"></td>
                 <td th:text="${patient.address}"></td>
+           		<td><a th:href="${'/patient/show/' + patient.patientId}">View</a> </td>
             </tr>
         </table>
     </div>
     <div class="row">
     </div>
 </div>
-
+<a th:href="${'/newPatient'}">Add Patient</a>
 </body>
 </html>

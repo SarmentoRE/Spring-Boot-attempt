@@ -40,7 +40,7 @@ public class PatientController {
             return "newPatient";
         }
         patServ.saveOrUpdate(patient);
-        return "redirect:/patientInfo";
+        return "redirect:/patient/list";
     }
 
 }
