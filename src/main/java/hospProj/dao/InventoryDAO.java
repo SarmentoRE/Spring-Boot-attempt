@@ -18,17 +18,17 @@ public class InventoryDAO extends JdbcDaoSupport {
 	public InventoryDAO(DataSource dataSource) {
 		this.setDataSource(dataSource);
 	}
-	
+
 	public Inventory findInventory(String ward, String item_id) {
-		String sql = InventoryMapper.BASE_SQL+" where ward=?" + " and item_id=?";
-		
-		Object[] params = new Object[] { ward , item_id};
+		String sql = InventoryMapper.BASE_SQL + " where ward=?" + " and item_id=?";
+
+		Object[] params = new Object[] { ward, item_id };
 		InventoryMapper InventoryMapper = new InventoryMapper();
 		try {
-				Inventory inv = this.getJdbcTemplate().queryForObject(sql, params, InventoryMapper);
-				return inv;
-	        } catch (EmptyResultDataAccessException e) {
-	            return null;
-	        }
+			Inventory inv = this.getJdbcTemplate().queryForObject(sql, params, InventoryMapper);
+			return inv;
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
 	}
 }

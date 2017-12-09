@@ -35,4 +35,8 @@ public class RoomService {
 		roomRepository.findAll().forEach(rooms::add);
 		return rooms;
 	}
+	
+	public Room saveOrUpdate(Room room) {
+		return roomRepository.save(room);
+	}
 }

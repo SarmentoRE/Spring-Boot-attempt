@@ -28,6 +28,7 @@
                 <th>Weight</th>
                 <th>Address</th>
                 <th>View</th>
+                <th>Room</th>
             </tr>
             <tr th:each="patient : ${patients}">
                 <td th:text="${patient.patientId}"></td>
@@ -38,6 +39,7 @@
                 <td th:text="${patient.weight}"></td>
                 <td th:text="${patient.address}"></td>
            		<td><a th:href="${'/patient/show/' + patient.patientId}">View</a> </td>
+           		<td><a th:href="${'/patient/room/' + patient.patientId}">Room</a> </td>
             </tr>
         </table>
     </div>

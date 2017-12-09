@@ -1,41 +1,56 @@
 package hospProj.model;
 
+import java.io.Serializable;
+
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
 @Entity
-public class Inventory {
-	@Id
-	@NotNull
-	String ward;
-	@Id
-	String item_id;
-	int quantity;
+public class Inventory implements Serializable{
+	private static final long serialVersionUID = -4010520830578381419L;
+	@EmbeddedId
+	private InventoryId inventoryId;
+	private int quantity;
+	private String item_name;
 	
-	public Inventory(String ward, String item_id, int quantity)
+	public Inventory(String ward, int item_id, int quantity, String item_name)
 	{
-		this.ward = ward;
-		this.item_id = item_id;
+		inventoryId = new InventoryId(item_id,ward);
 		this.quantity = quantity;
+		this.item_name = item_name;
 	}
 	
-	public String getWard() {
-		return ward;
+	public InventoryId getInventoryId() {
+		return inventoryId;
 	}
-	public void setWard(String ward) {
-		this.ward = ward;
+	public void setInventoryId(int item_id, String ward) {
+		inventoryId = new InventoryId(item_id, ward);
 	}
-	public String getItem_id() {
-		return item_id;
+	public int getItemId() {
+		return inventoryId.getItemId();
 	}
-	public void setItem_id(String item_id) {
-		this.item_id = item_id;
+	public void setItemId(int itemId)
+	{
+		inventoryId.setItemId(itemId);
+	}
+	public String getWardName() {
+		return inventoryId.getWardName();
+	}
+	public void setWardName(String wardName) {
+		inventoryId.setWardName(wardName);
 	}
 	public int getQuantity() {
 		return quantity;
 	}
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+
+	public String getItem_name() {
+		return item_name;
+	}
+
+	public void setItem_name(String item_name) {
+		this.item_name = item_name;
 	}
 }

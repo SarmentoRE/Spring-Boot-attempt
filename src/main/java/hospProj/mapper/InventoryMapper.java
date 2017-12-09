@@ -14,9 +14,10 @@ public class InventoryMapper implements RowMapper<Inventory>{
 	public Inventory mapRow(ResultSet rs, int row) throws SQLException {
 		// TODO Auto-generated method stub
 		String ward = rs.getString("ward");
-		String item_id = rs.getString("item_id");
+		int item_id = rs.getInt("item_id");
 		int quantity = rs.getInt("quantity");
-		return new Inventory(ward, item_id, quantity);
+		String item_name = rs.getString("item_name");
+		return new Inventory(ward, item_id, quantity, item_name);
 	}
 
 }
