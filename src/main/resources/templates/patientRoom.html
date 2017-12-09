@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>PATIENT ROOM</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+    <link href="../../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(rooms)}">
+        <h2>Patient Room</h2>
+        <table class="table table-striped">
+            <tr>
+            	<th>Patient Name</th>
+                <th>Room Number</th>
+                <th>Current Occupancy</th>
+                <th>Ward Name</th>
+                <th>Max Occupancy</th>
+            </tr>
+            <tr th:each="room : ${rooms}">
+            	<td th:text="${patient.patientName}"></td>
+                <td th:text="${room.roomNumber}"></td>
+                <td th:text="${room.occupancy}"></td>
+                <td th:text="${room.wardName}"></td>
+                <td th:text="${room.maxOccupancy}"></td>     
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

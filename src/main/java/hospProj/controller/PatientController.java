@@ -20,7 +20,7 @@ public class PatientController {
     private PatientService patServ;
 
     @ModelAttribute("patient")
-    public Patient getEmployee()
+    public Patient getPatient()
     {
     	return new Patient();
     }

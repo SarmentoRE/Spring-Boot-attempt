@@ -44,7 +44,7 @@ public class MainController {
 	@RequestMapping({ "/room" })
 	public String patientRoomPage(Model model) {
 		model.addAttribute("rooms", roomService.listAll());
-		return "room";
+		return "patient/room";
 	}
 
 	@RequestMapping({ "/room/{id}" })

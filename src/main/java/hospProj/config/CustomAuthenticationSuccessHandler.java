@@ -17,6 +17,6 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
 			throws IOException, ServletException {
 		Set<String> roles = AuthorityUtils.authorityListToSet(auth.getAuthorities());
 		response.setStatus(HttpServletResponse.SC_OK);
-		response.sendRedirect("/home");
+		response.sendRedirect("");
 	}
 }

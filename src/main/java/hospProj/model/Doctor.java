@@ -9,6 +9,7 @@ public class Doctor extends Employee {
 	private String specialty;
 	private String type;
 	
+	public Doctor() {}
 	public Doctor(int employeeId, String employeeName, Timestamp dob, double salary, String address, String username,String password, String role, String type, String specialty) 
 	{
 		super(employeeId, employeeName, dob, salary, address, username, password, role);
